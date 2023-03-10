@@ -14,10 +14,7 @@
     table{
         width: 500px;
         border-collapse: collapse;
-    }
-
-    tr{
-
+        position: relative;
     }
 
     td, th{
@@ -25,13 +22,37 @@
         border: 1px solid black
     }
 
+    thead > tr > th{
+        position: sticky;
+        top: -1px;
+        background-color:#4c4b4b ;
+    }
+
     thead, tfoot{
-        background-color: gray;
+        background-color: #4c4b4b;
         color: white;
     }
-    td#num{
+    td.num{
         text-align: right;
     }
+    caption{
+        font-size: 1.5em;
+        font-weight: bold;
+        padding: 10px;
+        background-color: lightgray;
+        color: rgba(0, 0, 0, 0.715);
+    }
+    
+    tbody > tr:nth-child(odd)/* 2n-1 */{
+        background-color: rgb(255, 255, 255);
+
+    }
+
+    tbody > tr:nth-child(even)/* 2n */{
+        background-color: lightgray;
+
+    }
+    
 </style>
 <body>
     <h1>Uso de tabelas grandes</h1>
@@ -47,12 +68,18 @@
     -->
 
     <table>
+        <caption>População das Unidades Federativas</caption>
         <thead>
             <tr>
-                <th>Estado</th>
-                <th>População</th>
+                <th scope="col">Estado</th>
+                <th scope="col" style="width: 50px;">População</th>
             </tr>
         </thead>
+        <tfoot>
+            <th scope="row">Total de Habitantes</th>
+            <td class="num"><strong>215 815 957</strong></td>
+        </tfoot>
+
         <tbody>
             <tr>
                 <td>São Paulo</td>
@@ -163,10 +190,7 @@
                 <td class="num">634 805</td>
             </tr>
         </tbody>
-        <tfoot>
-            <th class="">Total de Habitantes</th>
-            <td><strong>215 815 957</strong></td>
-        </tfoot>
+        
     </table>
 </body>
 </html>
