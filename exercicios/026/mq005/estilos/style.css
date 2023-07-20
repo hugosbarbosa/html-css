@@ -64,7 +64,9 @@ main{
     border-radius: 10px;
 }
 
+
 article > h2 {
+    text-align: center;
     padding-bottom: 20px;
 }
 
